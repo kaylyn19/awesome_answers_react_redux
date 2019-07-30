@@ -27,7 +27,11 @@ function QuestionShowPage() {
         createdAt={new Date(2017, 12, 4)}
         author={{full_name: 'Trolly Trollgarden'}}
       />
-      <AnswerDetails />
+      <AnswerDetails
+        body='Red.'
+        author={{full_name: 'Steve Wozniak'}}
+        createdAt={new Date(2019, 4, 12)}
+      />
     </main>
   );
 }
@@ -39,13 +43,14 @@ function QuestionShowPage() {
  // Your React component's names must be in PascalCase. Those whose
 // names do not begin with an upper case letter will interpreted
 // as plain HTML tag.
-function AnswerDetails() {
+function AnswerDetails(props) {
+  const { body, author, createdAt } = props;
   return (
     <div>
       <p>
-        Red. <br />
-        By Ulises Wisozk <br />
-        <small>Answered 2 days ago</small>
+        {body} <br />
+        By { author.full_name } <br />
+        <small>Answered {DifferenceInDays(null, createdAt)} days ago</small>
       </p>
     </div>
   );
@@ -71,6 +76,7 @@ function QuestionDetails(props) {
 
 // Not accurate but close enough difference date function.
 function DifferenceInDays(firstDateString, secondDateString) {
+  firstDateString = firstDateString || new Date();
   const firstDate = Date.parse(firstDateString);
   const secondDate = Date.parse(secondDateString)
   return Math.round((secondDate-firstDate)/(1000*60*60*24));
