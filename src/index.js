@@ -9,9 +9,20 @@ import * as serviceWorker from './serviceWorker';
 function App() {
   return (
     <div>
+      <QuestionShowPage></QuestionShowPage>
+    </div>
+  );
+}
+
+// To structure our application, we will create components
+// that simulate the pages of web application. These are meant
+// to replace the various pages rendered by the routes of our rails server.
+function QuestionShowPage() {
+  return (
+    <main>
       <QuestionDetails />
       <AnswerDetails />
-    </div>
+    </main>
   );
 }
 
