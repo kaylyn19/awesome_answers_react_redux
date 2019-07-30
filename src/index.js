@@ -3,6 +3,25 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import * as serviceWorker from './serviceWorker';
 
+// A React component is a function that returns a React element.
+// React elements are created with the `React.createElement()` method
+// or JSX tags.
+
+ // Your React component's names must be in PascalCase. Those whose
+// names do not begin with an upper case letter will interpreted
+// as plain HTML tag.
+function AnswerDetails() {
+  return (
+    <div>
+      <p>
+        Red. <br />
+        By Ulises Wisozk <br />
+        <small>Answered 2 days ago</small>
+      </p>
+    </div>
+  );
+}
+
 function QuestionDetails() {
   return (
     <div>
@@ -18,7 +37,7 @@ function QuestionDetails() {
   );
 }
 
-ReactDOM.render(<QuestionDetails/>, document.getElementById('root'));
+ReactDOM.render(<AnswerDetails/>, document.getElementById('root'));
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.
