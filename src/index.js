@@ -3,6 +3,18 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import * as serviceWorker from './serviceWorker';
 
+// In React application, we create a component that acts as the
+// "root" or the entry point to all of our other components.
+// This is the one that should be rendered `ReactDOM.render()`
+function App() {
+  return (
+    <div>
+      <QuestionDetails />
+      <AnswerDetails />
+    </div>
+  );
+}
+
 // A React component is a function that returns a React element.
 // React elements are created with the `React.createElement()` method
 // or JSX tags.
@@ -37,7 +49,7 @@ function QuestionDetails() {
   );
 }
 
-ReactDOM.render(<AnswerDetails/>, document.getElementById('root'));
+ReactDOM.render(<App/>, document.getElementById('root'));
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.
