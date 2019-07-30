@@ -20,7 +20,13 @@ function App() {
 function QuestionShowPage() {
   return (
     <main>
-      <QuestionDetails />
+      <QuestionDetails 
+        title="What's your favourite color?"
+        body="red, green, blue, yellow, ect."
+        viewCount={24}
+        createdAt={new Date(2017, 12, 4)}
+        author={{full_name: 'Trolly Trollgarden'}}
+      />
       <AnswerDetails />
     </main>
   );
@@ -45,20 +51,31 @@ function AnswerDetails() {
   );
 }
 
-function QuestionDetails() {
+function QuestionDetails(props) {
+  const { title, body, viewCount, createdAt, author } = props;
   return (
     <div>
-      <h2>What is your favourite color?</h2>
+      <h2>{title}?</h2>
       <p>
-        Red, green, blue, magenta, etc. <br />
-        By Bridge Troll
+        {body} <br />
+        By {author.full_name}
       </p>
       <p>
-        <small>Seen 10 time(s)</small> – <small>Created 10 days ago</small>
+        <small>Seen {viewCount} time(s)</small>
+        –
+        <small> Created  {DifferenceInDays(new Date().toLocaleDateString(), createdAt)} days ago</small>
       </p>
     </div>
   );
 }
+
+// Not accurate but close enough difference date function.
+function DifferenceInDays(firstDateString, secondDateString) {
+  const firstDate = Date.parse(firstDateString);
+  const secondDate = Date.parse(secondDateString)
+  return Math.round((secondDate-firstDate)/(1000*60*60*24));
+}
+
 
 ReactDOM.render(<App/>, document.getElementById('root'));
 
