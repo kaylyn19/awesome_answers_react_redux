@@ -14,7 +14,7 @@ export default function AnswerDetails(props) {
       <p>
         {body} <br />
         By { author.full_name } <br />
-        <small>Answered {DifferenceInDays(null, createdAt)} days ago</small>
+        <small>Answered <span style={{color: 'green'}}>{DifferenceInDays(null, createdAt)}</span> days ago</small>
       </p>
     </div>
   );
