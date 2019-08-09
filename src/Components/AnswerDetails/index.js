@@ -13,7 +13,7 @@ export default function AnswerDetails(props) {
     <div>
       <p>
         {body} <br />
-        By { author.full_name } <br />
+      By { `${author.first_name} ${author.last_name}` } <br />
         <small>Answered <span style={{color: 'green'}}>{DifferenceInDays(null, createdAt)}</span> days ago</small>
       </p>
     </div>

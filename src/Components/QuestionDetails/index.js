@@ -8,7 +8,7 @@ export default function QuestionDetails(props) {
       <h2>{title}?</h2>
       <p>
         {body} <br />
-        By {author.full_name}
+        By {author ? author.full_name : ''}
       </p>
       <p>
         <small>Seen {viewCount} time(s)</small>
